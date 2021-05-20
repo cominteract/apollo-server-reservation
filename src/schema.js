@@ -2,7 +2,7 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
   type Query {
-    reservations( ): ReservationConnection!
+    reservations : ReservationConnection!
     reservation(id: ID!): Reservation
   }
 
