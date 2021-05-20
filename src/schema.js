@@ -2,16 +2,7 @@ const { gql } = require('apollo-server');
 
 const typeDefs = gql`
   type Query {
-    reservations(
-      """
-      The number of results to show. Must be >= 1. Default = 20
-      """
-      pageSize: Int
-      """
-      If you add a cursor here, it will only return results _after_ this cursor
-      """
-      after: String
-    ): ReservationConnection!
+    reservations( ): ReservationConnection!
     reservation(id: ID!): Reservation
   }
 
@@ -22,8 +13,6 @@ const typeDefs = gql`
   after these.
   """
   type ReservationConnection {
-    cursor: String!
-    hasMore: Boolean!
     reservations: [Reservation]!
   }
 
