@@ -23,6 +23,7 @@ const typeDefs = gql`
     updated_at: String
     content: String
     reservation_type: String!
+    property_url: String
   }
 `;
 

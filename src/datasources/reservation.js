@@ -13,12 +13,13 @@ class ReservationAPI extends RESTDataSource {
       property_id: reservation.property_id,
       content: reservation.content,
       reservation_type: reservation.reservation_type ,
-      updated_at: reservation.updated_at
+      updated_at: reservation.updated_at,
+      property_url: reservation.property_url
     };
   }
 
   async getAllReservations() {
-    const response = await this.get('60a5ed6c6dbafa6b0d359901');
+    const response = await this.get('60a6f635417da6150c7d86d4');
     // transform the raw launches to a more friendly
 
 
@@ -28,7 +29,7 @@ class ReservationAPI extends RESTDataSource {
   }
 
   async getReservationById({ reservationId }) {
-    const res = await this.get('60a5ed6c6dbafa6b0d359901', { property_id: reservationId });
+    const res = await this.get('60a6f635417da6150c7d86d4', { property_id: reservationId });
     return this.reservationReducer(res[0]);
   }
 
