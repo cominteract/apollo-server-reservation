@@ -3,7 +3,7 @@ const { RESTDataSource } = require('apollo-datasource-rest');
 class ReservationAPI extends RESTDataSource {
   constructor() {
     super();
-    this.baseURL = 'https://api.jsonbin.io/b/';
+    this.baseURL = 'https://lh-sample.herokuapp.com/api/v1/';
   }
 
   // leaving this inside the class to make the class easier to test
@@ -19,7 +19,7 @@ class ReservationAPI extends RESTDataSource {
   }
 
   async getAllReservations() {
-    const response = await this.get('60a6f635417da6150c7d86d4');
+    const response = await this.get('reservations');
     // transform the raw launches to a more friendly
 
 
@@ -29,7 +29,7 @@ class ReservationAPI extends RESTDataSource {
   }
 
   async getReservationById({ reservationId }) {
-    const res = await this.get('60a6f635417da6150c7d86d4', { property_id: reservationId });
+    const res = await this.get('reservations', { property_id: reservationId });
     return this.reservationReducer(res[0]);
   }
 
